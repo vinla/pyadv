@@ -15,6 +15,7 @@
 },
 {
 	"Id": "002",
+	"OnEnter": "funcs.IncreaseStat(player, 'Skill', 2)",
 	"Description": "It's no use the figure has gone and doesn't look like he's coming back. You're on your own",
 	"Options":
 		[			
@@ -27,35 +28,60 @@
 {
 	"Id": "003",
 	"Description": 
-		"To your great surprise the key fits the lock and the cell door opens. You emerge into a dank dimly lit corridor.",
+		"To your great surprise the key fits the lock and the cell door opens. You emerge into a dank dimly lit corridor. You come across the decicated corpse of a soldier, a sword still sticks out from him",
 	"Options":
 		[			
 			{
-				"Text": "Advance",
+				"Text": "Leave the sword",
 				"Goto": "004"
+			},
+			{
+				"Text": "Take the sword",
+				"Goto": "005"
 			}
 		]
 },
 {
 	"Id": "004",
-	"Description": "A hollow soldier blocks your path. His unseeing eyes seem to bore a whole through you.",
+	"Description": "The thought of disturbing the corpse unsettles you so you leave it alone and move on",
 	"Options":
 		[
 			{
-				"Text": "Fight",
+				"Text": "Advance",
+				"Goto": "006"
+			}
+		]
+},
+{
+	"Id": "005",
+	"OnEnter": "funcs.AddItem(player, 'Sword')",
+	"Description": "You wrestle the sword free with some effort, to your horror as you do so the corpse begins to moan and move. You look on horrified as it stands and turns to face you",
+	"Options":
+		[
+			{
+				"Text": "Fight for your life",
 				"Enemy":
 				{
 					"Name": "Hollow Soldier",
 					"Skill": 8,
 					"HP": 3
 				},
-				"GotoOnWin": "005"
+				"GotoOnWin": "006"
+			},
+			{
+				"Text": "Run for it",
+				"Goto": "005b"
 			}
 		]
 },
 {
-	"Id": "005",
-	"Description": 
-		"You slay the hollow soldier. You are a winner."	
+	"Id": "005b",
+	"Description": "The creature swipes at you as you turn, its claws rake across your arm leaving a stinging wound",
+	"OnLeave": "funcs.Hurt(player, 2)",
+	"Goto": "006"
+},
+{
+	"Id": "006",
+	"Description": "Leaving the dank corridor you find a ladder that leads you to the open air. You find yourself in the ruins of an old castle perched precariously on the side of a great raive. You have arrived at fire link shrine"
 }
 ]
