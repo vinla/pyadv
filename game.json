@@ -1,0 +1,61 @@
+[{
+	"Id": "001",
+	"Description": "You awake alone and groggy in a cold damp cell. You can't remember how you got here. Light pours in through a hole in the ceiling, its far to high to reach. For a moment a silohette of a man blocks the light, he drops something and disappears. The object makes a metallic clink as it hits the stone cell floor. Scurrying over you take the item, it is a key",
+	"Options":
+		[
+			{
+				"Text": "Shout for help", 
+				"Goto": "002"
+			},
+			{
+				"Text": "Use the key to leave the cell",
+				"Goto": "003"
+			}
+		]
+},
+{
+	"Id": "002",
+	"Description": "It's no use the figure has gone and doesn't look like he's coming back. You're on your own",
+	"Options":
+		[			
+			{
+				"Text": "Use the key to leave the cell",
+				"Goto": "003"
+			}
+		]
+},
+{
+	"Id": "003",
+	"Description": 
+		"To your great surprise the key fits the lock and the cell door opens. You emerge into a dank dimly lit corridor.",
+	"Options":
+		[			
+			{
+				"Text": "Advance",
+				"Goto": "004"
+			}
+		]
+},
+{
+	"Id": "004",
+	"Description": "A hollow soldier blocks your path. His unseeing eyes seem to bore a whole through you.",
+	"Options":
+		[
+			{
+				"Text": "Fight",
+				"Enemy":
+				{
+					"Name": "Hollow Soldier",
+					"Skill": 8,
+					"HP": 3
+				},
+				"GotoOnWin": "005"
+			}
+		]
+},
+{
+	"Id": "005",
+	"Description": 
+		"You slay the hollow soldier. You are a winner."	
+}
+]
